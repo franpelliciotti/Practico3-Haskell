@@ -25,10 +25,11 @@ reversa [] = []
 reversa (x:xs) = (reversa xs) ++ (x:[])
 
 --Actividad 3:
---iguales :: Eq a => [a] -> [a] -> Bool
---iguales [] [] = True
---iguales [x] [x] = True
---iguales (x:xs) (y:ys)
+iguales :: Eq a => [a] -> [a] -> Bool
+iguales [] [] = True
+iguales [] (x:xs) = False --Para evitar falta de patterns
+iguales (x:xs) [] = False --Para evitar falta de patterns
+iguales (x:xs) (y:ys) = if (length(x:xs) == length(y:ys)) && x == y then iguales xs ys else False
 
 esPrimo :: Int -> Bool
 esPrimo x = listaDivisores x == [1, x]
