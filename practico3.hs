@@ -57,9 +57,27 @@ cortar :: Int -> Int -> [Char] -> [Char]
 cortar = undefined
 
 --Actividad 9:
+{-Otra forma:
+digitos n | n<0 = digitos (abs n)
+          | n<10 = [n]  
+          | otherwise = digitos (n `div` 10) ++ [n `mod` 10]
+-}
+
+{- digitos 0 = []
+   digitos x | x < 10 = [] 
+    -}
+
 digitos :: Int -> [Int]
-digitos = undefined
+digitos n = digitos2 (abs n)
+
+digitos2 :: Int -> [Int]
+digitos2 n | n<10 = [n]
+           | otherwise = digitos2 (n `div` 10) ++ [n `mod` 10]
+
+cantDigitos :: Int -> Int
+cantDigitos x = length(show x) 
 
 --Actividad 32:
 cumpleCon :: [Int]
 cumpleCon = [n | n<-[1..5000], n `mod` 1 == 0 && n `mod` 2 == 1 && n `mod` 3 == 2 && n `mod` 4 == 3 && n `mod` 5 == 4 && n `mod` 6 == 5 && n `mod` 7 == 6 && n `mod` 8 == 7 && n `mod` 9 == 8 && n `mod` 10 == 9]
+
