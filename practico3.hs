@@ -81,3 +81,54 @@ cantDigitos x = length(show x)
 cumpleCon :: [Int]
 cumpleCon = [n | n<-[1..5000], n `mod` 1 == 0 && n `mod` 2 == 1 && n `mod` 3 == 2 && n `mod` 4 == 3 && n `mod` 5 == 4 && n `mod` 6 == 5 && n `mod` 7 == 6 && n `mod` 8 == 7 && n `mod` 9 == 8 && n `mod` 10 == 9]
 
+-- | FUNCIONES DE ALTO ORDEN:
+
+-- Actividad 15: Dada una lista de enteros, retornar la lista de sus cuadrados:
+listaCuadrados :: [Int] -> [Int]
+listaCuadrados [] = []
+listaCuadrados (x:xs) = map (^2) (x:xs)
+
+-- Actividad 16: Dado un entero positivo, retornar la lista de sus divisores.
+listaDivisores' :: Int -> [Int]
+listaDivisores' = undefined 
+
+-- Actividad 17: Dada una lista de naturales, obtener la lista que contenga solo los números primos de la lista original.
+soloPrimos :: [Int] -> [Int]
+soloPrimos [] = []
+soloPrimos (x:xs) = filter esPrimo (x:xs)
+
+-- Actividad 18: Dada una lista de naturales, retornar la suma de los cuadrados de la lista:
+sumaCuadrados :: [Int] -> Int
+sumaCuadrados [] = 0
+sumaCuadrados (x:xs) = foldr (+) 0 (listaCuadrados (x:xs))
+
+-- Actividad 19: Dada una lista de naturales, retornar la lista con sus sucesores:
+listaSucc :: [Int] -> [Int]
+listaSucc [] = []
+listaSucc (x:xs) = map (+ 1) (x:xs)
+ 
+--Actividad 20: Dada una lista de enteros, sumar todos sus elementos:
+sumaElementos :: [Int] -> Int
+sumaElementos [] = 0
+sumaElementos (x:xs) = foldr (+) 0 (x:xs)
+
+--Actividad 21: Definir el factorial usando fold:
+factorialFold :: Int -> Int
+factorialFold 0 = 1
+factorialFold x = foldr (*) 1 [x, (x-1)..1]
+
+--Actividad 22: Redefinir la función and tal que and xs se verifica si todos los elementos de xs son verdaderos.
+and' :: [Bool] -> Bool
+and' [] = True
+and' (x:xs) = foldr (&&) True (x:xs)
+
+{-Actividad 23: Usando foldl o foldr definir una función tam::[a]->Int que devuelve
+la cantidad de elementos de una lista dada. Dar un ejemplo en los cuales
+foldr y foldl evaluen diferente con los mismos parametros.
+-}
+--hint: Función que incremente la izquierda.
+tamFoldR :: [a] -> Int
+tamFoldR [] = 0
+tamFoldR (x:xs) = undefined
+
+--Utilizando listas por comprensión resolver:
