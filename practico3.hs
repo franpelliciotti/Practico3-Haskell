@@ -74,12 +74,25 @@ digitos2 :: Int -> [Int]
 digitos2 n | n<10 = [n]
            | otherwise = digitos2 (n `div` 10) ++ [n `mod` 10]
 
+
 cantDigitos :: Int -> Int
 cantDigitos x = length(show x) 
 
---Actividad 32:
-cumpleCon :: [Int]
-cumpleCon = [n | n<-[1..5000], n `mod` 1 == 0 && n `mod` 2 == 1 && n `mod` 3 == 2 && n `mod` 4 == 3 && n `mod` 5 == 4 && n `mod` 6 == 5 && n `mod` 7 == 6 && n `mod` 8 == 7 && n `mod` 9 == 8 && n `mod` 10 == 9]
+--Actividad 11: Generar una lista infinita de unos.
+infUnos :: [Int]
+infUnos = [1,1..] 
+
+-- Actividad 12: Generar una lista infinita de naturales comenzando desde un número dado.
+infNs :: Int -> [Int]
+infNs n = [n, n+1..] 
+
+--Actividad 13: Generar una lista con los primeros n naturales.
+natDesdeN :: Int -> [Int]
+natDesdeN n = [1..n] 
+
+--Actividad 14: (*) Retornar los primeros 5 elementos de una lista infinita de enteros positivos.
+primerosCinco :: [Int]
+primerosCinco = take 5 [1,2..] 
 
 -- | FUNCIONES DE ALTO ORDEN:
 
@@ -132,3 +145,8 @@ tamFoldR [] = 0
 tamFoldR (x:xs) = undefined
 
 --Utilizando listas por comprensión resolver:
+
+--Actividad 32:
+cumpleCon :: [Int]
+cumpleCon = [n | n<-[1..5000], n `mod` 1 == 0 && n `mod` 2 == 1 && n `mod` 3 == 2 && n `mod` 4 == 3 && n `mod` 5 == 4 && n `mod` 6 == 5 && n `mod` 7 == 6 && n `mod` 8 == 7 && n `mod` 9 == 8 && n `mod` 10 == 9]
+
