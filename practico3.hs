@@ -74,7 +74,6 @@ digitos2 :: Int -> [Int]
 digitos2 n | n<10 = [n]
            | otherwise = digitos2 (n `div` 10) ++ [n `mod` 10]
 
-
 cantDigitos :: Int -> Int
 cantDigitos x = length(show x) 
 
