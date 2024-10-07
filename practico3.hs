@@ -102,7 +102,7 @@ listaCuadrados (x:xs) = map (^2) (x:xs)
 
 -- Actividad 16: Dado un entero positivo, retornar la lista de sus divisores.
 listaDivisores' :: Int -> [Int]
-listaDivisores' = undefined 
+listaDivisores' = undefined
 
 -- Actividad 17: Dada una lista de naturales, obtener la lista que contenga solo los números primos de la lista original.
 soloPrimos :: [Int] -> [Int]
@@ -148,6 +148,30 @@ tamFoldR (x:xs) = undefined
 listaComprensionSucc :: [Int] -> [Int]
 listaComprensionSucc [] = []
 listaComprensionSucc (x:xs) = drop 1 (x:([n | n<-[(minimum (x:xs))..(maximum (x:xs) + 1)], n == x+1])) ++ listaComprensionSucc(xs)
+
+--Actividad 25: Dada una lista de naturales, retornar sus cuadrados:
+listaComprensionCuadrados :: [Int] -> [Int]
+listaComprensionCuadrados [] = []
+listaComprensionCuadrados (x:xs) = drop 1 (x:([n | n<-[x..x*x], n == x*x])) ++ listaComprensionCuadrados(xs)
+
+--Actividad 26: Dada una lista de enteros, retornar los elementos pares que sean mayores a 10:
+paresMayoresA10 :: [Int] -> [Int]
+paresMayoresA10 [] = []
+paresMayoresA10 (x:xs) = drop 1(x:[n | n<-[(minimum (x:xs))..(maximum (x:xs)+1)], n `mod` 2 == 0 && n > 10]) ++ paresMayoresA10 xs
+ 
+--Actividad 27: Dado un entero, retornar sus divisores (Hecho más arriba)
+
+--Actividad 29: Dado un natural n, retrornar los números primos comprendidos entre 2 y n:
+primosMenoresN :: Int -> [Int]
+primosMenoresN n = [x | x<-[2..n], esPrimo x]
+
+--Actividad 30: Definir la lista infinita de números pares:
+paresInfinitos :: [Int]
+paresInfinitos = [x | x<-[1..], x `mod` 2 == 0]
+
+--Actividad 31: Dadas dos listas de naturales, retornar su producto cartesiano:
+prodCartesianoListas :: [Int] -> [Int] -> [(Int, Int)]
+prodCartesianoListas = undefined
 
 --Actividad 32:
 cumpleCon :: [Int]
