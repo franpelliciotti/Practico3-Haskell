@@ -144,6 +144,10 @@ tamFoldR [] = 0
 tamFoldR (x:xs) = undefined
 
 --Utilizando listas por comprensión resolver:
+--Actividad 24: Dada una lista de enteros, retornar sus sucesores:
+listaComprensionSucc :: [Int] -> [Int]
+listaComprensionSucc [] = []
+listaComprensionSucc (x:xs) = drop 1 (x:([n | n<-[(minimum (x:xs))..(maximum (x:xs) + 1)], n == x+1])) ++ listaComprensionSucc(xs)
 
 --Actividad 32:
 cumpleCon :: [Int]
